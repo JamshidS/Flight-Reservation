@@ -68,7 +68,7 @@ public class FlightServiceImpl implements FlightService {
         return "Flight Updated Successfully";
 
     }
-    
+
 
     @Override
     public List<Flight> getAll() {
