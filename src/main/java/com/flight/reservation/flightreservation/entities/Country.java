@@ -19,7 +19,6 @@ public class Country {
     private String countryName;
 
     @OneToMany(mappedBy = "country", fetch = FetchType.LAZY)
-    @JoinColumn(name = "passenger_id", nullable = false)
     private List<Passenger> passengers;
 
 

@@ -34,6 +34,11 @@ public class Passenger{
     private List<Flight> flights;
 
     @ManyToOne
+    @JoinColumn(name = "country_id", nullable = false)
     private Country country;
+
+    @ManyToOne
+    @JoinColumn(name = "bookingrecord_id", nullable = false)
+    private BookingRecord bookingRecord;
 
 }
