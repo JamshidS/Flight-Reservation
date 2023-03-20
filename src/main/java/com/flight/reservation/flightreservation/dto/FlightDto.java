@@ -15,4 +15,6 @@ public class FlightDto {
     private String flightNumber;
     private LocalTime flightTime;
     private String origin;
+    private String airportName;
+    private String airLineName;
 }
