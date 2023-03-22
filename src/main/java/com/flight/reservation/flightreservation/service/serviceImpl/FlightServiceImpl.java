@@ -82,6 +82,16 @@ public class FlightServiceImpl implements FlightService {
     }
 
     @Override
+    public Flight getById(Long id) {
+        Optional<Flight> optionalFlight = flightRepository.findById(id);
+        if(optionalFlight.isPresent()){
+            Flight flight = optionalFlight.get();
+            return flight;
+        }
+        return null;
+    }
+
+    @Override
     public Flight getFlightByAirPort(Airport airport) {
         return null;
     }
@@ -97,7 +107,7 @@ public class FlightServiceImpl implements FlightService {
     }
 
     @Override
-    public List<Flight> getByFlightNumber(String flightNumber) {
-        return null;
+    public Flight getByFlightNumber(String flightNumber) {
+        return flightRepository.findByFlightNumber(flightNumber);
     }
 }

@@ -12,12 +12,13 @@ public interface FlightService {
     List<Flight> getAll();
 
     String deleteFlight(Long id);
+    Flight getById(Long id);
 
     Flight getFlightByAirPort(Airport airport);
     List<Flight> getFlightsByAirport(Airport airport);
 
     List<Flight> getByDate(String date);
 
-    List<Flight> getByFlightNumber(String flightNumber);
+    Flight getByFlightNumber(String flightNumber);
 
 }
