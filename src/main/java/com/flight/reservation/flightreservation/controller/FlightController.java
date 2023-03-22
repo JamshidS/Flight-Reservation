@@ -2,6 +2,7 @@ package com.flight.reservation.flightreservation.controller;
 
 
 import com.flight.reservation.flightreservation.dto.FlightDto;
+import com.flight.reservation.flightreservation.entities.Flight;
 import com.flight.reservation.flightreservation.service.FlightService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,5 +30,10 @@ public class FlightController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteFlight(@PathVariable Long id){
         return new ResponseEntity<>(flightService.deleteFlight(id),HttpStatus.OK);
+    }
+
+    @GetMapping("/get/{id}")
+    public ResponseEntity<Flight> getById(@PathVariable Long id){
+        return new ResponseEntity<>(flightService.getById(id),HttpStatus.OK);
     }
 }
