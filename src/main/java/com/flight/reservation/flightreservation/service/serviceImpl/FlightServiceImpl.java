@@ -8,8 +8,11 @@ import com.flight.reservation.flightreservation.repositories.AirlineRepository;
 import com.flight.reservation.flightreservation.repositories.AirportRepository;
 import com.flight.reservation.flightreservation.repositories.FlightRepository;
 import com.flight.reservation.flightreservation.service.FlightService;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -84,26 +87,40 @@ public class FlightServiceImpl implements FlightService {
     @Override
     public Flight getById(Long id) {
         Optional<Flight> optionalFlight = flightRepository.findById(id);
+        Flight flightReturn = null;
         if(optionalFlight.isPresent()){
             Flight flight = optionalFlight.get();
-            return flight;
+            flightReturn = flight;
         }
-        return null;
+        return flightReturn;
     }
 
     @Override
     public Flight getFlightByAirPort(Airport airport) {
-        return null;
+        Optional<Flight> flight = Optional
+                .ofNullable(flightRepository
+                .findFlightByAirportName(airport.getName()));
+        if(!flight.isPresent()){
+            throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Fliht not found");
+        }
+        return flight.get();
+
     }
 
     @Override
     public List<Flight> getFlightsByAirport(Airport airport) {
-        return null;
+        Optional<List<Flight>> flights = Optional.ofNullable(flightRepository.findFlightsByAirportName(airport.getName()));
+        ArrayList<Flight> returnFlights = new ArrayList<>();
+        flights.ifPresent(returnFlights::addAll);
+        return returnFlights;
     }
 
     @Override
     public List<Flight> getByDate(String date) {
-        return null;
+        Optional<List<Flight>> flights = Optional.ofNullable(flightRepository.findByDate(date));
+        ArrayList<Flight> flightsInDB = new ArrayList<>();
+        flights.ifPresent(flightsInDB::addAll);
+        return flightsInDB;
     }
 
     @Override
