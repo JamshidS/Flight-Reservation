@@ -18,6 +18,7 @@ View flight details and seat availability
 * Java 8+
 * Spring Boot
 * PostgreSQL database
+* Keycloak
 
 ## Contributing
 Contributions are welcome! Please submit a pull request.

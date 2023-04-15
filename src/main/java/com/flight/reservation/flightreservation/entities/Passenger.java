@@ -1,18 +1,22 @@
 package com.flight.reservation.flightreservation.entities;
 
+import lombok.Cleanup;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
-@Table(name = "user")
+@Table(name = "passenger")
 @Data
-public class User {
+public class Passenger{
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+    @Column(name = "passportnumber")
+    private String passportNumber;
     @Column(name = "firstname")
     private String firstName;
     @Column(name = "lastName")
@@ -25,15 +29,16 @@ public class User {
     private String email;
     @Column(name = "phonenumber")
     private String phoneNumber;
-    @Column(name = "userName")
-    private String userName;
-    @Column(name = "password")
-    private String password;
 
     @ManyToMany(cascade = {CascadeType.MERGE})
-    @JoinTable(
-            name = "users_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+    private List<Flight> flights;
+
+    @ManyToOne
+    @JoinColumn(name = "country_id", nullable = false)
+    private Country country;
+
+    @ManyToOne
+    @JoinColumn(name = "bookingrecord_id", nullable = false)
+    private BookingRecord bookingRecord;
+
 }
