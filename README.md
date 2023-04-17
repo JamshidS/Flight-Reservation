@@ -19,6 +19,7 @@ View flight details and seat availability
 * Spring Boot
 * PostgreSQL database
 * Keycloak
+* Lombok
 
 ## Contributing
 Contributions are welcome! Please submit a pull request.
