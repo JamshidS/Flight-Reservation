@@ -21,6 +21,7 @@ View flight details and seat availability
 * Keycloak
 * Lombok
 * Spring cloud
+* Eureka
 
 ## Contributing
 Contributions are welcome! Please submit a pull request.
