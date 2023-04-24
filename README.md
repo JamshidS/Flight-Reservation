@@ -20,6 +20,7 @@ View flight details and seat availability
 * PostgreSQL database
 * Keycloak
 * Lombok
+* Spring cloud
 
 ## Contributing
 Contributions are welcome! Please submit a pull request.
