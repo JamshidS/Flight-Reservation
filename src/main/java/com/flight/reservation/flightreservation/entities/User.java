@@ -13,19 +13,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Long id;
-    @Column(name = "firstname")
+    @Column(name = "first_name")
     private String firstName;
-    @Column(name = "lastName")
+    @Column(name = "last_name")
     private String lastName;
     @Column(name = "gender")
     private String gender;
-    @Column(name = "dataOfBirth")
+    @Column(name = "data_of_birth")
     private String dataOfBirth;
     @Column(name = "email")
     private String email;
-    @Column(name = "phonenumber")
+    @Column(name = "phone_number")
     private String phoneNumber;
-    @Column(name = "userName")
+    @Column(name = "user_name")
     private String userName;
     @Column(name = "password")
     private String password;
