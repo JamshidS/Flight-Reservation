@@ -17,7 +17,7 @@ public class Role {
 
     @Column(name="name")
     private String name;
-    @Column(name = "roleType")
+    @Column(name = "role_type")
     private String rolType;
 
     @ManyToMany(cascade = {CascadeType.MERGE},
