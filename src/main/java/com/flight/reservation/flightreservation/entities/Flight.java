@@ -24,11 +24,11 @@ public class Flight {
     private String destination;
     @Column(name = "duration")
     private String duration;
-    @Column(name = "flightDate")
+    @Column(name = "flight_Date")
     private LocalDate flightDate;
-    @Column(name = "flightNumber")
+    @Column(name = "flight_number")
     private String flightNumber;
-    @Column(name = "flightTime")
+    @Column(name = "flight_time")
     private LocalTime flightTime;
     @Column(name = "origin")
     private String origin;
