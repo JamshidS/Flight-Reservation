@@ -19,15 +19,15 @@ public class BookingRecord {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "bookingdate")
+    @Column(name = "booking_date")
     private LocalDateTime bookingDate;
     @Column(name = "destination")
     private String destination;
-    @Column(name = "flightDate")
+    @Column(name = "flight_date")
     private LocalDate flightDate;
-    @Column(name = "flightNumber")
+    @Column(name = "flight_number")
     private String flightNumber;
-    @Column(name = "flightTime")
+    @Column(name = "flight_time")
     private LocalTime flightTime;
     @Column(name = "origin")
     private String origin;
